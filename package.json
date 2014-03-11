@@ -1,0 +1,15 @@
+{
+  "name": "ti-build-atom",
+  "main": "./lib/ti-build-atom",
+  "version": "0.2.0",
+  "description": "Builds the current project using the Ti CLI and opens the app in the iOS Simulator",
+  "activationEvents": [
+    "ti-build-atom:build"
+  ],
+  "repository": "https://github.com/soulglo/ti-build-atom",
+  "license": "MIT",
+  "engines": {
+    "atom": ">0.50.0"
+  },
+  "dependencies": {}
+}
