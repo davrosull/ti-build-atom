@@ -7,3 +7,6 @@ It can be activated from the editor using the `alt-cmd-b` key-binding. To clean 
 Other key mappings include:
 -  `alt-cmd-b`: Build for iPhone Simulator
 -  `alt-cmd-b`: Build for iPad Simulator
+
+
+![](https://raw.github.com/soulglo/ti-build-atom/master/images/image.png)
