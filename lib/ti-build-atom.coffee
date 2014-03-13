@@ -24,7 +24,7 @@ class TiBuildView extends SelectListView
     { "id":"3", "name":"iOS Simulator - iPhone (4 inch)", "key":"⌘⌥1" },
     { "id":"4", "name":"iOS Simulator - iPad", "key":"" },
     { "id":"5", "name":"iOS Simulator - iPad Retina", "key":"⌘⌥2" },
-    { "id":"0", "name":"Clean", "key":"⌘⌥⇧C"}])
+    { "id":"0", "name":"Clean", "key":"⌘⌥C"}])
 
     atom.workspaceView.command 'ti-build-atom:toggle', =>
       @toggle()
