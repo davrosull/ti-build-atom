@@ -1,3 +1,24 @@
-'context-menu':
-  '.platform-darwin .tree-view':
-    'Titanium Build': 'ti-build-atom:build'
+'menu': [
+  {
+    'label': 'Titanium'
+    'submenu': [
+      {
+        'label': 'Build',
+        'submenu': [
+          {
+            'label': 'iPhone'
+            'command': 'ti-build-atom:iphoneSimulator'
+          },
+          {
+            'label': 'iPad'
+            'command': 'ti-build-atom:ipadSimulator'
+          }
+        ]
+      },
+      {
+        'label': 'Clean',
+        'command': 'ti-build-atom:clean'
+      }
+    ]
+  }
+]

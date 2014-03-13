@@ -7,5 +7,17 @@
 
 # For more detailed documentation see
 # https://atom.io/docs/latest/advanced/keymaps
-'.workspace':
-  'cmd-alt-b': 'ti-build-atom:build'
+# '.workspace':
+#   'alt-cmd-v': 'ti-build-atom:build'
+#   'alt-cmd-b': 'ti-build-atom:toggle'
+#   'alt-cmd-b-d': 'ti-build-atom:iosDevice'
+#   'alt-cmd-b-1': 'ti-build-atom:iphoneSimulator'
+#   'alt-cmd-b-2': 'ti-build-atom:ipadSimulator'
+#   'alt-cmd-b-a': 'ti-build-atom:androidDevice'
+#   'alt-cmd-c': 'ti-build-atom:tiClean'
+
+'.editor':
+  'alt-cmd-b': 'ti-build-atom:toggle'
+  'alt-cmd-c': 'ti-build-atom:clean'
+  'alt-cmd-1': 'ti-build-atom:iphoneSimulator'
+  'alt-cmd-2': 'ti-build-atom:ipadSimulator'
