@@ -88,8 +88,8 @@ class TiBuildView extends SelectListView
   build: (platform, device, target) ->
     projectpath = atom.project?.getPath()
     if projectpath
-      console.log "titanium build --platform #{platform} -C '#{device}' --target #{target} --log-level debug -q --project-dir #{projectpath}"
-      exec "titanium build --platform #{platform} -C #{device} --target #{target} --log-level debug -q --project-dir #{projectpath}", (error, stdout, stderr) ->
+      console.log "titanium build --platform #{platform} -C '#{device}' --target #{target} --log-level debug --project-dir #{projectpath}"
+      exec "PATH='$PATH:/usr/local/bin'; titanium build --platform #{platform} -C '#{device}' --target #{target} --log-level debug --project-dir #{projectpath}", (error, stdout, stderr) ->
         console.log "---------stdout: ---------\n" + stdout  if stdout isnt ""
         console.log "---------stderr: ---------\n" + stderr  if stderr isnt ""
         console.log "---------exec error: ---------\n[" + error + "]"  if error isnt null
