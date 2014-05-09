@@ -12,6 +12,10 @@
           {
             'label': 'iPad'
             'command': 'ti-build-atom:ipadSimulator'
+          },
+          {
+            'label': 'Android'
+            'command': 'ti-build-atom:androidDevice'
           }
         ]
       },

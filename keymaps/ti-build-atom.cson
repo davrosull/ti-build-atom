@@ -21,3 +21,4 @@
   'alt-cmd-c': 'ti-build-atom:clean'
   'alt-cmd-1': 'ti-build-atom:iphoneSimulator'
   'alt-cmd-2': 'ti-build-atom:ipadSimulator'
+  'alt-cmd-3': 'ti-build-atom:androidDevice'
