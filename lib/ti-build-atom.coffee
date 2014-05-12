@@ -1,4 +1,4 @@
-{$, $$, SelectListView} = require 'atom'
+{$, $$, SelectListView, BufferedProcess} = require 'atom'
 exec = require("child_process").exec
 
 module.exports =
@@ -24,6 +24,7 @@ class TiBuildView extends SelectListView
     { "id":"3", "name":"iOS Simulator - iPhone (4 inch)", "key":"⌘⌥1" },
     { "id":"4", "name":"iOS Simulator - iPad", "key":"" },
     { "id":"5", "name":"iOS Simulator - iPad Retina", "key":"⌘⌥2" },
+    { "id":"6", "name":"Android - Device", "key":"⌘⌥3" },
     { "id":"0", "name":"Clean", "key":"⌘⌥C"}])
 
     atom.workspaceView.command 'ti-build-atom:toggle', =>
@@ -38,6 +39,8 @@ class TiBuildView extends SelectListView
     atom.workspaceView.command "ti-build-atom:ipadSimulator", (event) =>
       @ipadSimulator()
 
+    atom.workspaceView.command "ti-build-atom:androidDevice", (event) =>
+      @androidDevice()
 
   getFilterKey: ->
     'name'
@@ -79,34 +82,31 @@ class TiBuildView extends SelectListView
     console.log("Cleaning the Build Directory")
     projectpath = atom.project?.getPath()
     if projectpath
-      exec "titanium clean -q --project-dir #{projectpath}", (error, stdout, stderr) ->
-        console.log "---------stdout: ---------\n" + stdout  if stdout isnt ""
-        console.log "---------stderr: ---------\n" + stderr  if stderr isnt ""
-        console.log "---------exec error: ---------\n[" + error + "]"  if error isnt null
-        return
+      command = "titanium"
+      args = ["clean" , "-d" , projectpath ]
+      stdout = (output) -> console.log(output)
+      process = new BufferedProcess({command, args, stdout})
+
 
   build: (platform, device, target) ->
+    console.log("Running on device/simulator")
     projectpath = atom.project?.getPath()
     if projectpath
-      console.log "titanium build --platform #{platform} -C '#{device}' --target #{target} --log-level debug --project-dir #{projectpath}"
-      exec "PATH='$PATH:/usr/local/bin'; titanium build --platform #{platform} -C '#{device}' --target #{target} --log-level debug --project-dir #{projectpath}", (error, stdout, stderr) ->
-        console.log "---------stdout: ---------\n" + stdout  if stdout isnt ""
-        console.log "---------stderr: ---------\n" + stderr  if stderr isnt ""
-        console.log "---------exec error: ---------\n[" + error + "]"  if error isnt null
-        return
+      command = "titanium"
+      args = ["build" ,"--platform" ,platform,"-C",device, "-T",target, "-d" , projectpath ]
+      stdout = (output) -> console.log(output)
+      process = new BufferedProcess({command, args, stdout})
+
+        #return
 
   iosDevice: ->
-    console.log("Cleaning the Build Directory")
     @build('iphone', 'all', 'device')
 
   iphoneSimulator: ->
-    console.log("Cleaning the Build Directory")
     @build('iphone', 'iPhone Retina (4 inch)', 'simulator')
 
   ipadSimulator: ->
-    console.log("Cleaning the Build Directory")
     @build('iphone', 'iPad Retina', 'simulator')
 
   androidDevice: ->
-    console.log("Cleaning the Build Directory")
     @build('android', 'all', 'device')
