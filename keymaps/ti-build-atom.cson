@@ -16,9 +16,16 @@
 #   'alt-cmd-b-a': 'ti-build-atom:androidDevice'
 #   'alt-cmd-c': 'ti-build-atom:tiClean'
 
-'.editor':
+'.platform-darwin .editor':
   'alt-cmd-b': 'ti-build-atom:toggle'
   'alt-cmd-c': 'ti-build-atom:clean'
   'alt-cmd-1': 'ti-build-atom:iphoneSimulator'
   'alt-cmd-2': 'ti-build-atom:ipadSimulator'
   'alt-cmd-3': 'ti-build-atom:androidDevice'
+
+'.platform-linux .editor, .platform-win32 .editor':
+  'alt-ctrl-b': 'ti-build-atom:toggle'
+  'alt-ctrl-c': 'ti-build-atom:clean'
+  'alt-ctrl-1': 'ti-build-atom:iphoneSimulator'
+  'alt-ctrl-2': 'ti-build-atom:ipadSimulator'
+  'alt-ctrl-3': 'ti-build-atom:androidDevice'
