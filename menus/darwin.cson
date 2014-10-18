@@ -1,28 +1,32 @@
 'menu': [
   {
-    'label': 'Titanium'
-    'submenu': [
-      {
-        'label': 'Build',
+      'label': 'Packages'
+      'submenu': [
+        'label': 'Titanium'
         'submenu': [
           {
-            'label': 'iPhone'
-            'command': 'ti-build-atom:iphoneSimulator'
+            'label': 'Build',
+            'submenu': [
+              {
+                'label': 'iPhone'
+                'command': 'ti-build-atom:iphoneSimulator'
+              },
+              {
+                'label': 'iPad'
+                'command': 'ti-build-atom:ipadSimulator'
+              },
+              {
+                'label': 'Android'
+                'command': 'ti-build-atom:androidDevice'
+              }
+            ]
           },
           {
-            'label': 'iPad'
-            'command': 'ti-build-atom:ipadSimulator'
-          },
-          {
-            'label': 'Android'
-            'command': 'ti-build-atom:androidDevice'
+            'label': 'Clean',
+            'command': 'ti-build-atom:clean'
           }
         ]
-      },
-      {
-        'label': 'Clean',
-        'command': 'ti-build-atom:clean'
-      }
-    ]
+
+  ]
   }
 ]
